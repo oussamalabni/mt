@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light Mode Colors - Based on description */
+    --background: 248 249 250; /* Light Creamy White */
+    --foreground: 33 37 41; /* Dark Gray text */
+    --card: 255 255 255;
+    --card-foreground: 33 37 41;
+    --popover: 255 255 255;
+    --popover-foreground: 33 37 41;
+    --primary: 13 27 42; /* Dark Navy Blue for titles/links */
+    --primary-foreground: 248 249 250; /* Light Creamy White */
+    --secondary: 241 243 245; /* Lighter gray for secondary elements */
+    --secondary-foreground: 13 27 42;
+    --muted: 241 243 245;
+    --muted-foreground: 108 117 125; /* Muted gray text */
+    --accent: 188 152 106; /* Pale Gold/Brown accent */
+    --accent-foreground: 13 27 42;
+    --destructive: 220 53 69;
+    --destructive-foreground: 248 249 250;
+    --border: 222 226 230;
+    --input: 222 226 230;
+    --ring: 13 27 42;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark Mode Colors - Based on description */
+    --background: 13 27 42; /* Dark Navy Blue */
+    --foreground: 222 226 230; /* Light Gray text */
+    --card: 24 39 54; /* Slightly lighter navy */
+    --card-foreground: 222 226 230;
+    --popover: 24 39 54;
+    --popover-foreground: 222 226 230;
+    --primary: 173 216 230; /* Light Blue for titles/links */
+    --primary-foreground: 13 27 42;
+    --secondary: 33 50 68; /* Darker secondary */
+    --secondary-foreground: 222 226 230;
+    --muted: 33 50 68;
+    --muted-foreground: 173 181 189; /* Muted light gray */
+    --accent: 210 180 140; /* Lighter Tan/Gold accent */
+    --accent-foreground: 13 27 42;
+    --destructive: 180 40 55;
+    --destructive-foreground: 222 226 230;
+    --border: 45 62 80;
+    --input: 45 62 80;
+    --ring: 173 216 230;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    direction: rtl; /* Ensure RTL direction */
+    font-family: var(--font-inter); /* Apply base font */
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-merriweather); /* Apply heading font */
+    @apply text-primary; /* Apply primary color (navy/light blue) to headings */
+  }
+  a {
+     @apply text-primary hover:text-accent; /* Use primary for links, accent for hover */
+  }
+  /* Ensure prose styles use the correct fonts and colors */
+  .prose {
+     @apply text-foreground;
+  }
+  .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+     font-family: var(--font-merriweather);
+     @apply text-primary;
+  }
+   .prose a {
+     @apply text-primary hover:text-accent;
+   }
+   /* Add dark mode prose styles */
+  .dark .prose {
+     @apply text-foreground;
+  }
+  .dark .prose h1, .dark .prose h2, .dark .prose h3, .dark .prose h4, .dark .prose h5, .dark .prose h6 {
+     @apply text-primary;
+  }
+  .dark .prose a {
+     @apply text-primary hover:text-accent;
+   }
+}
+
